@@ -16,4 +16,15 @@ $(document).ready(function(){
       });
     }
   });
+
+  $("#create-post").on("click", function (){
+    console.log("clicking")
+  });
+  // var postParams =
+  //
+  // $.ajax({
+  //   type: "POST",
+  //   url: "https://turing-birdie.herokuapp.com/api/v1/posts.json",
+  //   data: postParams
+  // });
 });
