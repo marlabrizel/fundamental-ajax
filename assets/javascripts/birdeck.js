@@ -18,7 +18,8 @@ $(document).ready(function(){
   });
 
   $("#create-post").on("click", function (){
-    console.log("clicking")
+    var post = $("#post-description").val()
+    console.log(post);
   });
   // var postParams =
   //
