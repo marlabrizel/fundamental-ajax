@@ -1,14 +1,21 @@
 $(document).ready(function(){
-  $.ajax({
-    type:    "GET",
-    url:     "https://turing-birdie.herokuapp.com/api/v1/posts.json",
-    success: function(posts) {
-      $.each(posts, function(index, post){
-        renderPost(post)
-      })
-    }
-  })
+  fetchPost()
+  createPost()
+})
 
+  function fetchPost() {
+    $.ajax({
+      type:    "GET",
+      url:     "https://turing-birdie.herokuapp.com/api/v1/posts.json",
+      success: function(posts) {
+        $.each(posts, function(index, post){
+          renderPost(post)
+        })
+      }
+    })
+  }
+
+function createPost(){
   $("#create-post").on("click", function(){
     var postParams = {
       post: {
@@ -25,7 +32,7 @@ $(document).ready(function(){
       }
     })
   })
-})
+}
 
 function renderPost(post) {
   $("#latest-posts").append(
