@@ -57,5 +57,17 @@ function renderPost(post) {
 };
 
 function deletePost(){
+  $("#latest-posts").delegate("#delete-post", 'click', function (){
+    var $post = $(this).closest(".post")
+    // $(this) refers to what you're clicking, which in this case is "#delete-post"
+    //  then we find the closest ".post"
 
+    $.ajax({
+      type: "DELETE"
+      url: "https://turing-birdie.herokuapp.com/api/v1/posts/" + $post.attr('data-id') + ".json",
+      success: function() {
+        $post.remove()
+      }
+    });
+  });
 };
