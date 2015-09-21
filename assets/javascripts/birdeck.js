@@ -63,9 +63,12 @@ function deletePost(){
     //  then we find the closest ".post"
 
     $.ajax({
-      type: "DELETE"
+      type: "DELETE",
       url: "https://turing-birdie.herokuapp.com/api/v1/posts/" + $post.attr('data-id') + ".json",
       success: function() {
+        $post.remove()
+      },
+      error: function() {
         $post.remove()
       }
     });
