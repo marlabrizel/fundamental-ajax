@@ -2,6 +2,7 @@ $(document).ready(function(){
   fetchPost()
   fetchPostsButton()
   createPost()
+  deletePost()
 });
 
 function fetchPostsButton (){
