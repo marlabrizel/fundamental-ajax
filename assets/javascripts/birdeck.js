@@ -21,7 +21,7 @@ function fetchPostsButton (){
         })
       }
     })
-  }
+  };
 
 function createPost(){
   $("#create-post").on("click", function(){
@@ -40,7 +40,7 @@ function createPost(){
       }
     })
   })
-}
+};
 
 function renderPost(post) {
   $("#latest-posts").append(
@@ -52,4 +52,4 @@ function renderPost(post) {
     + post.description
     + "</p></div>"
   )
-}
+};
