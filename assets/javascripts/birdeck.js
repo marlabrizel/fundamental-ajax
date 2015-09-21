@@ -3,7 +3,7 @@ $(document).ready(function(){
     type: "GET",
     url: "https://turing-birdie.herokuapp.com/api/v1/posts.json",
     success: function(posts) {
-      console.log("Posts Received");
+      console.table(posts);
     }
   });
 });
