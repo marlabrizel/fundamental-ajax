@@ -1,25 +1,15 @@
 $(document).ready(function(){
-  $("#fetch-posts").on("click", function (){
-    $.ajax({
-      type: "GET",
-      url: "https://turing-birdie.herokuapp.com/api/v1/posts.json",
-      success: function(posts) {
-        $.each(posts, function(index, post){
-          $("#latest-posts").append(
-            "<div class='post' data-id='"
-            + post.id
-            + "'><h6>Published on"
-            + post.created_at
-            + "</h6><p>"
-            + post.description
-            + "</p></div>"
-          )
-        });
-      }
-    });
-  });
+  $.ajax({
+    type:    "GET",
+    url:     "https://turing-birdie.herokuapp.com/api/v1/posts.json",
+    success: function(posts) {
+      $.each(posts, function(index, post){
+        renderPost(post)
+      })
+    }
+  })
 
-  $("#create-post").on("click", function (){
+  $("#create-post").on("click", function(){
     var postParams = {
       post: {
         description: $("#post-description").val()
@@ -30,17 +20,21 @@ $(document).ready(function(){
       type:    "POST",
       url:     "https://turing-birdie.herokuapp.com/api/v1/posts.json",
       data:    postParams,
-      success: function(post){
-        $("#latest-posts").append(
-          "<div class='post' data-id='"
-          + post.id
-          + "'><h6>Published on"
-          + post.created_at
-          + "</h6><p>"
-          + post.description
-          + "</p></div>"
-        )
+      success: function(post) {
+        renderPost(post)
       }
-    });
-  });
-});
+    })
+  })
+})
+
+function renderPost(post) {
+  $("#latest-posts").append(
+    "<div class='post' data-id='"
+    + post.id
+    + "'><h6>Published on "
+    + post.created_at
+    + "</h6><p>"
+    + post.description
+    + "</p></div>"
+  )
+}
