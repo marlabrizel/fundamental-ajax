@@ -52,6 +52,10 @@ function renderPost(post) {
     + post.created_at
     + "</h6><p>"
     + post.description
-    + "</p></div>"
+    + "</p><button id='delete-post' class='btn btn-danger btn-xs'>Delete</button></div>"
   )
+};
+
+function deletePost(){
+
 };
