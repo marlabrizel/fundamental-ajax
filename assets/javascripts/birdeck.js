@@ -1,9 +1,17 @@
 $(document).ready(function(){
   fetchPost()
+  fetchPostsButton()
   createPost()
-})
+});
+
+function fetchPostsButton (){
+  $("#fetch-button-posts").on("click", function(){
+    fetchPost();
+  });
+}
 
   function fetchPost() {
+    var newestItemID = parseInt($(".post").last().attr("data-id"))
     $.ajax({
       type:    "GET",
       url:     "https://turing-birdie.herokuapp.com/api/v1/posts.json",
