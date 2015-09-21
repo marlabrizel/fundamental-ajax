@@ -18,8 +18,12 @@ $(document).ready(function(){
   });
 
   $("#create-post").on("click", function (){
-    var post = $("#post-description").val()
-    console.log(post);
+    var postParams = {
+      post: {
+        description: $("#post-description").val()
+      }
+    }
+    console.log(postParams);
   });
   // var postParams =
   //
